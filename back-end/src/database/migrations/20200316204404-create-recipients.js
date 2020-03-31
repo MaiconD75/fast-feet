@@ -21,7 +21,6 @@ module.exports = {
       },
       complement: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
       state: {
         type: Sequelize.STRING,
@@ -46,7 +45,7 @@ module.exports = {
     });
   },
 
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('recipients');
+  down: QueryInterface => {
+    return QueryInterface.dropTable('recipients');
   },
 };

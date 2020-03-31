@@ -7,7 +7,7 @@ class RecipientController {
       name: Yup.string().required(),
       street: Yup.string().required(),
       number: Yup.number().required(),
-      complement: Yup.string().required(),
+      complement: Yup.string(),
       state: Yup.string()
         .uppercase()
         .required()
@@ -22,6 +22,7 @@ class RecipientController {
     }
 
     const {
+      id,
       name,
       street,
       number,
@@ -32,6 +33,7 @@ class RecipientController {
     } = await Recipient.create(req.body);
 
     return res.json({
+      id,
       name,
       address: {
         state,
